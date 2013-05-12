@@ -1,0 +1,7 @@
+src_files:
+- "*.rb"
+launchers:
+  minitest:
+    command: ruby tests.rb
+launch_in_dev:
+- minitest
