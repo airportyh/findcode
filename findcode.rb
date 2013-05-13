@@ -1,15 +1,8 @@
 class FindCode
 
   def tokenize(str, opts = {})
-    if str == '' then
-      return []
-    end
-    tokens = _tokenize(str, opts[:ignore] || [])
-    
-    tokens
-  end
-
-  def _tokenize(str, ignore)
+    return [] if str == ''
+    ignore = opts[:ignore] || []
     tokens = []
     token_regex = /[a-zA-Z_0-9]+/
     m = str.match(token_regex)
@@ -25,7 +18,9 @@ class FindCode
 
   def find_match(query, text)
     tokens = tokenize(text)
-    tokens.select { |token| token.to_s == query }
+    tokens.select do |token|
+      token.to_s == query || token.text == query
+    end
   end
 
 end

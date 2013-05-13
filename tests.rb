@@ -66,9 +66,10 @@ class TestFindMatch < Test::Unit::TestCase
       [token('abc', 0), token('abc', 7)])
   end
 
-  def test_matches_both_query_words
-    #match = FindCode.new.find_match(["abc", "def"], "abc def")
-
+  def test_matches_query_with_underscore
+    match = FindCode.new.find_match("to_s", "token.to_s")
+    assert_equal(match,
+      [token('to_s', 6)])
   end
 
   def token(token, pos)

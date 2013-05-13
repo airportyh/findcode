@@ -5,8 +5,8 @@ require 'colorize'
 
 filename = ARGV[0]
 query = ARGV[1..ARGV.size]
-puts "Query: #{query}"
-puts "Reading #{filename}"
+#puts "Query: #{query}"
+#puts "Reading #{filename}"
 content = File.read(filename)
 lines = content.split("\n")
 find_code = FindCode.new
